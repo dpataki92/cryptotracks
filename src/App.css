@@ -6,12 +6,12 @@ header {
     top: 0;
     left: 0;
     z-index: 999;
-    background-color: #0683c9;
+    background-color: #6f42c1;
     color: white;
 }
 
 #logo {
-    margin-top: 25px;
+    margin-top: 30px;
     margin-left: -50px;
 }
 
