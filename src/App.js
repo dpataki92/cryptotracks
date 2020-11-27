@@ -1,7 +1,9 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import CoinDetails from './coinDetails.js';
-import CoinList from './coinList.js';
+import CoinDetails from './components/coinDetails.js';
+import CoinList from './components/coinList.js';
+import './App.css';
+
 
 const App = () => {
     return(
