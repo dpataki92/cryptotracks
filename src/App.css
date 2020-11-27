@@ -1,9 +1,3 @@
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 0 30px; 
-}
-
 header {
     width: 100%;
     height: 100px;
@@ -14,5 +8,10 @@ header {
     z-index: 999;
     background-color: #0683c9;
     color: white;
+}
+
+#logo {
+    margin-top: 25px;
+    margin-left: -50px;
 }
 

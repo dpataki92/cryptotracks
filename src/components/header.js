@@ -4,7 +4,7 @@ const Header = () => {
     return(
         <header> 
             <div class="container clearfix"> 
-                <h1 id="logo"><i className="fas fa-coins"></i> CryptoTracks </h1>  
+                <h2 id="logo"><i className="fas fa-coins"></i> CryptoTracks </h2>  
             </div> 
        </header>
     )
