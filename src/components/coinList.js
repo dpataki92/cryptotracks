@@ -6,7 +6,7 @@ import Coin from './coin.js';
 const CoinList = (props) => {
 
     const [coins, setCoins] = useState([]);
-    const { coinStorage } = useContext(CoinStorageContext);
+    const { coinStorage, deleteCoin } = useContext(CoinStorageContext);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const CoinList = (props) => {
         }
 
         fetchData()
-    }, [])
+    }, [coinStorage]);
 
     const renderCoins = () => {
         if(isLoading) {
@@ -35,7 +35,7 @@ const CoinList = (props) => {
         return (
             <ul className="coinlist list-group mt-5">
                 {coins.map((coin) => {
-                    return <Coin key={coin.id} coin={coin} />;
+                    return <Coin key={coin.id} coin={coin} deleteCoin={deleteCoin}/>;
                 })}               
             </ul>
         )
