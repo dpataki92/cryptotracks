@@ -9,7 +9,7 @@ import { CoinStorageContextProvider } from './context/coinStorage.js';
 
 const App = () => {
     return(
-        <div>
+        <div className="container">
             <CoinStorageContextProvider>
                 <Router>
                     <Header />
