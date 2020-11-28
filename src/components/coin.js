@@ -8,8 +8,8 @@ const Coin = ({coin}) => {
                 <img className="coinlist-image" src={coin.image} alt="" />
                 <span className="text-decoration-none">{coin.current_price}</span>
 
-                <span className="text-success mr-2">
-                    <i className="fas fa-sort-down align-middle mr-1"></i>
+                <span className={coin.price_change_percentage_24h < 0 ? "text-danger mr-2" : "text-success mr-2"}>
+                    <i className={`fas fa-sort-${coin.price_change_percentage_24h < 0 ? "down" : "up"} align-middle mr-1`}></i>
                     {coin.price_change_percentage_24h}
                 </span>
                 <li className="delete-icon far fa-times-circle text-danger"></li>
