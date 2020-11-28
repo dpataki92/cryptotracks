@@ -6,17 +6,20 @@ const CoinList = (props) => {
 
     const [coins, setCoins] = useState([]);
     const { coinStorage } = useContext(CoinStorageContext);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
+            setIsLoading(true);
             const response = await coinGecko.get('/coins/markets', {
                 params: {
                     vs_currency: 'usd',
-                    ids: "bitcoin,ethereum"
+                    ids: coinStorage.join(",")
                 }
             });
-
-            console.log(response.data);
+            
+            setCoins(response.data);
+            setIsLoading(false);
 
         }
 
