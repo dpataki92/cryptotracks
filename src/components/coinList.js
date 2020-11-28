@@ -24,12 +24,19 @@ const CoinList = (props) => {
 
         }
 
-        fetchData()
+        if (coinStorage.length > 0) {
+            fetchData();
+        } else {
+            setCoins([]);
+        }
+
     }, [coinStorage]);
 
     const renderCoins = () => {
         if(isLoading) {
             return <div><i className="fas fa-coins"></i> Your coins are loading...</div>
+        } else if (coins.length === 0) {
+            return <div><i className="fas fa-coins"></i> Add a coin to the list...</div>
         }
 
         return (
