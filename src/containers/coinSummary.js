@@ -5,7 +5,7 @@ import CoinList from '../components/coinList.js';
 const CoinSummary = () => {
 
     return (
-        <div>
+        <div className="coinsummary shadow border p-2 rounded mt-2 bg-light">
             <AddCoinButton />
             <CoinList />
         </div>

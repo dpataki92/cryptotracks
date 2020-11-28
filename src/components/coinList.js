@@ -33,7 +33,7 @@ const CoinList = (props) => {
         }
 
         return (
-            <ul className="coinlist list-group mt-2">
+            <ul className="coinlist list-group mt-5">
                 {coins.map((coin) => {
                     return <Coin key={coin.id} coin={coin} />;
                 })}               
