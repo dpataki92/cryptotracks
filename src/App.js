@@ -14,6 +14,7 @@ const App = () => {
                 <Router>
                     <Header />
                     <Route exact path="/" component={CoinSummary}/>
+                    <Route path="/coins/:id" component={CoinDetails}/>
                 </Router>
             </CoinStorageContextProvider>
         </div>
