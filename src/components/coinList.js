@@ -1,11 +1,11 @@
 import React from 'react';
 
-const CoinList = () => {
+const CoinList = (props) => {
     return (
         <div>
-            
-        </div>
-    )
-}
 
+        </div>
+    );
+}
+ 
 export default CoinList;

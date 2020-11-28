@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import CoinDetails from './components/coinDetails.js';
-import CoinList from './components/coinList.js';
+import CoinDetails from './containers/coinDetails.js';
+import CoinSummary from './containers/coinSummary.js';
 import './App.css';
 import Header from './components/header.js';
 
@@ -11,7 +11,7 @@ const App = () => {
         <div>
             <Router>
                 <Header />
-                <Route exact path="/" component={CoinList}/>
+                <Route exact path="/" component={CoinSummary}/>
             </Router>
         </div>
     )
