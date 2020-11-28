@@ -4,15 +4,18 @@ import CoinDetails from './containers/coinDetails.js';
 import CoinSummary from './containers/coinSummary.js';
 import './App.css';
 import Header from './components/header.js';
+import { CoinStorageContextProvider } from './context/coinStorage.js';
 
 
 const App = () => {
     return(
         <div>
-            <Router>
-                <Header />
-                <Route exact path="/" component={CoinSummary}/>
-            </Router>
+            <CoinStorageContextProvider>
+                <Router>
+                    <Header />
+                    <Route exact path="/" component={CoinSummary}/>
+                </Router>
+            </CoinStorageContextProvider>
         </div>
     )
 }
