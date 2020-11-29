@@ -24,7 +24,7 @@ const CoinSummary = () => {
     return (
         <div className="coinsummary shadow border rounded bg-light">
             <AddCoinButton coins={coins}/>
-            <CoinList allCoins={coins}/>
+            <CoinList />
         </div>
     )
 }

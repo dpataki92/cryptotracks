@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { CoinStorageContext } from '../context/coinStorage.js';
+import { Link } from 'react-router-dom';
 
 const AddCoinButton = ({coins}) => {
     const [isActive, setIsActive] = useState(false);
@@ -26,12 +27,12 @@ const AddCoinButton = ({coins}) => {
       </div>
       <div>
         <div className="chart-button mt-1">
-            <button
-              onClick={() => 1+2}
+            <Link
+              to="/coins/compare"
               className="btn btn-outline-secondary btn-sm"
             >
               Compare
-            </button>
+            </Link>
         </div>
       </div>
       </div>
