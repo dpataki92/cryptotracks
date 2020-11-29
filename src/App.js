@@ -5,6 +5,7 @@ import CoinSummary from './containers/coinSummary.js';
 import './App.css';
 import Header from './components/header.js';
 import { CoinStorageContextProvider } from './context/coinStorage.js';
+import CompareCoins from './components/compareCoins.js';
 
 
 const App = () => {
@@ -14,7 +15,8 @@ const App = () => {
                 <Router>
                     <Header />
                     <Route exact path="/" component={CoinSummary}/>
-                    <Route path="/coins/:id" component={CoinDetails}/>
+                    <Route exact path="/coins/:id" component={CoinDetails}/>
+                    <Route exact path="/coins/compare" component={CompareCoins}/>
                 </Router>
             </CoinStorageContextProvider>
         </div>

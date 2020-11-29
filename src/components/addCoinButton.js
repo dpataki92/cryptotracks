@@ -1,26 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { CoinStorageContext } from '../context/coinStorage.js';
 
-const AddCoinButton = (props) => {
+const AddCoinButton = ({coins}) => {
     const [isActive, setIsActive] = useState(false);
     const { addCoin } = useContext(CoinStorageContext);
-    const coins = [
-      "bitcoin",
-      "ethereum",
-      "ripple",
-      "dash",
-      "neo",
-      "tron",
-      "bitcoin-cash",
-      "litecoin",
-      "ardor",
-      "eos",
-      "okb",
-      "tezos",
-      "cardano",
-      "hyperion",
-      "tether"
-    ];
 
     const handleClick = (coin) => {
         addCoin(coin);
@@ -28,7 +11,7 @@ const AddCoinButton = (props) => {
     };
 
     return ( 
-    
+        <div className="coin-list-buttons">
         <div className="dropdown">
         <button onClick={() => setIsActive(!isActive)} className="btn btn-primary dropdown-toggle add-coin" type="button">
           Add Coin
@@ -41,7 +24,17 @@ const AddCoinButton = (props) => {
           })}
         </div>
       </div>
-    
+      <div>
+        <div className="chart-button mt-1">
+            <button
+              onClick={() => 1+2}
+              className="btn btn-outline-secondary btn-sm"
+            >
+              Compare
+            </button>
+        </div>
+      </div>
+      </div>
     );
 }
  

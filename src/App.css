@@ -81,7 +81,7 @@ header {
     border-color: #e0c56e;
   }
 
-  .chart-header {
+  .chart-header, .coin-list-buttons {
     display: flex;
     justify-content: space-between;
   }

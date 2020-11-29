@@ -18,7 +18,7 @@ const CoinList = (props) => {
                     ids: coinStorage.join(",")
                 }
             });
-
+            console.log(response.data)
             setCoins(response.data);
             setIsLoading(false);
 
