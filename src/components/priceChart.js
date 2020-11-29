@@ -31,7 +31,7 @@ const PriceChart = ({data}) => {
               datasets: [{
                   label: `${detail.name} price`,
                   data: determineTimeFormat(),
-                  backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                  backgroundColor: `${detail.price_change_24h < 0 ? 'rgba(242, 38, 19, 0.7)' : 'rgba(30, 130, 76, 0.7)'}`,
                   pointRadius: 0,
                   borderWidth: 1
               }],
