@@ -66,7 +66,7 @@ const CoinDetails = () => {
         }
         return(
             <div className="coinlist">
-                <PriceChart />
+                <PriceChart data={coinData}/>
                 <CoinData />
             </div>
         )
