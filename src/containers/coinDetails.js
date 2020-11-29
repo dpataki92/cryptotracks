@@ -54,17 +54,16 @@ const CoinDetails = () => {
     const coinRender = () => {
         if (isLoading) {
             return <div><i className="fas fa-coins"></i> Your coin is loading...</div>
-        } else {
-            return(
-                <div className="coinlist">
-                    <PriceChart />
-                    <CoinData />
-                </div>
-            )
         }
+        return(
+            <div className="coinlist">
+                <PriceChart />
+                <CoinData />
+            </div>
+        )
     }
     
-    return coinRender;
+    return coinRender();
 }
 
 export default CoinDetails;
