@@ -60,3 +60,9 @@ header {
   .coin:hover .delete-icon {
     display: block;
   }
+
+
+  .chartDiv {
+    margin-top: 5em;
+    padding: 0.5em;
+  }

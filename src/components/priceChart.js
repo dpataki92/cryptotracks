@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Chartjs from 'chart.js';
+import { chartOptions } from '../configs/chartConfig';
 
 const PriceChart = (props) => {
 
@@ -7,49 +8,30 @@ const PriceChart = (props) => {
 
     useEffect(() => {
       if (chartRef && chartRef.current) {
-        
+
         const chart = new Chartjs(chartRef.current, {
-          type: 'bar',
+          type: 'line',
           data: {
-              labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+              labels: "# of votes",
               datasets: [{
                   label: '# of Votes',
-                  data: [12, 19, 3, 5, 2, 3],
-                  backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(255, 206, 86, 0.2)',
-                      'rgba(75, 192, 192, 0.2)',
-                      'rgba(153, 102, 255, 0.2)',
-                      'rgba(255, 159, 64, 0.2)'
-                  ],
-                  borderColor: [
-                      'rgba(255, 99, 132, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(255, 206, 86, 1)',
-                      'rgba(75, 192, 192, 1)',
-                      'rgba(153, 102, 255, 1)',
-                      'rgba(255, 159, 64, 1)'
-                  ],
+                  data: [{x: 1, y: 15}, {x: 2, y: 12}, {x: 3, y: 18}],
+                  backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                  pointRadius: 0,
                   borderWidth: 1
-              }]
+              }],
           },
-          options: {
-              scales: {
-                  yAxes: [{
-                      ticks: {
-                          beginAtZero: true
-                      }
-                  }]
-              }
-          }
+          options: chartOptions
       })
       }
     })
 
     return (
-        <div>
-            <canvas ref={chartRef} id ="myChart" height={250} width={250}></canvas>
+        <div className="bg-white border rounded p-3 chartDiv">
+          <div></div>
+          <div>
+              <canvas ref={chartRef} id ="myChart" height={250} width={250}></canvas>
+          </div>
         </div>
       );
 }
