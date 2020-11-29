@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chartjs from 'chart.js';
 import { chartOptions } from '../configs/chartConfig';
+import { Link } from 'react-router-dom';
 
 const PriceChart = ({data}) => {
 
@@ -46,7 +47,8 @@ const PriceChart = ({data}) => {
     const renderPrice = () => {
       if (detail) {
         return (
-          <React.Fragment>
+          <div className="chart-header">
+            <div>
             <p className="my-0"><img src={detail.image} style={{width: "30px", height: "30px"}} alt=""/></p>
             <p className="my-0"><strong>${detail.current_price.toFixed(2)}</strong></p>
             <p
@@ -58,7 +60,16 @@ const PriceChart = ({data}) => {
             >
               {detail.price_change_percentage_24h.toFixed(2)}%
             </p>
-          </React.Fragment>
+            </div>
+            <div className="chart-button mt-1">
+          <Link
+            to="/"
+            className="btn btn-outline-secondary btn-sm"
+          >
+            ← Back
+          </Link>
+        </div>
+        </div>
         );
       }
     };
