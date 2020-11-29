@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CoinData = ({data}) => {
-    console.log(data)
+    
     const renderData = () => {
       if (data) {
         return (

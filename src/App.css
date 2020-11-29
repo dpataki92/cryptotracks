@@ -75,3 +75,8 @@ header {
   .coin-data-div {
     margin-bottom: 10px;
   }
+
+  .add-coin {
+    background-color: #e0c56e;
+    border-color: #e0c56e;
+  }

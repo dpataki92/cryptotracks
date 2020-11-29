@@ -9,8 +9,14 @@ export const CoinStorageContextProvider = props => {
         setCoinStorage(coinStorage.filter(el => {return el !== coin}));
     }
 
+    const addCoin = (coin) => {
+        if (coinStorage.indexOf(coin) === -1) {
+            setCoinStorage([...coinStorage, coin]);
+        }
+    }
+
     return (
-        <CoinStorageContext.Provider value={{coinStorage, deleteCoin}}>
+        <CoinStorageContext.Provider value={{coinStorage, deleteCoin, addCoin}}>
             {props.children}
         </CoinStorageContext.Provider>
     );
