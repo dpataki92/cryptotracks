@@ -66,3 +66,12 @@ header {
     margin-top: 5em;
     padding: 0.5em;
   }
+
+  .coin-data-category {
+    font-weight: bold;
+    font-size: 90%;
+  }
+
+  .coin-data-div {
+    margin-bottom: 10px;
+  }
