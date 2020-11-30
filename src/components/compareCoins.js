@@ -3,6 +3,7 @@ import Chartjs from 'chart.js';
 import { compareChartOptions } from '../configs/chartConfig';
 import coinGecko from '../apis/coinGecko.js';
 import {decideSort} from '../helpers/updateCompareCanvas.js';
+import { Link } from 'react-router-dom';
 
 const CompareCoins = () => {
     const chartRef = useRef();
@@ -69,6 +70,9 @@ const CompareCoins = () => {
 
       return (
         <div className="bg-white border rounded p-3 chartDiv">
+          <Link to="/" className="btn btn-outline-secondary btn-sm" style={{float: 'right'}}>
+            ← Back
+          </Link>
           <div id="canvas-div">
             <canvas ref={chartRef} id="myChart" width={250} height={250}></canvas>
           </div>
