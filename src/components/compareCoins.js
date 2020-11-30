@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import Chartjs from 'chart.js';
 import { compareChartOptions } from '../configs/chartConfig';
 import coinGecko from '../apis/coinGecko.js';
-import {updateCompareCanvas} from '../helpers/updateCompareCanvas.js';
 import {decideSort} from '../helpers/updateCompareCanvas.js';
 
 const CompareCoins = () => {
@@ -32,13 +31,14 @@ const CompareCoins = () => {
         
         if (coinsToCompare) {
           let sorted = decideSort(coinsToCompare, sortCondition).slice(0,5);
+          console.log(sorted)
             const chart = new Chartjs(chartRef.current, {
                 type: 'bar',
                 data: {
                   labels: sorted.map(c => c.name),
                     datasets: [{
-                        label: `Current price (USD)`,
-                        data: sorted.map(c => c.current_price), 
+                        label: sortCondition[0].toUpperCase() + sortCondition.replace(/_/g, " ").slice(1),
+                        data: sorted.map(c => c[sortCondition]), 
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.5)',
                             'rgba(54, 162, 235, 0.5)',
@@ -52,6 +52,7 @@ const CompareCoins = () => {
                   ...compareChartOptions
                 }
             })
+            console.log(chart.data.datasets[0].data)
             setCurrentChart(chart);  
         }
             

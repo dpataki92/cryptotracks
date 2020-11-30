@@ -27,7 +27,7 @@ export const updateCompareCanvas = (arr, condition) => {
         data: {
           labels: updatedArr.map(c => c.name),
             datasets: [{
-                label: `Current price`,
+                label: condition[0].toUpperCase() + condition.replace(/_/g, "").slice(1),
                 data: updatedArr.map(c => c[condition]), 
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',

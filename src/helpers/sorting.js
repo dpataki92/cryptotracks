@@ -43,7 +43,7 @@ function maxAndRemove(arr) {
     let max = arr[0];
     let maxIndex = 0;
     for (let i = 1; i < arr.length; i++) {
-      if (arr[i]['market_cap'] > max['market_cap']) {
+      if (arr[i]['market_cap_rank'] < max['market_cap_rank']) {
         max = arr[i];
         maxIndex = i;
       }
