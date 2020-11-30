@@ -68,7 +68,7 @@ const CompareCoins = () => {
 
       }, [coinsToCompare]);
 
-      const handleClick = (e) => {
+      const handleSortClick = (e) => {
         currentChart.destroy();
         setCoinsToCompare(false);
         setSortCondition(e.target.id);
@@ -86,52 +86,58 @@ const CompareCoins = () => {
           <div id="canvas-div">
             <canvas ref={chartRef} id="myChart" width={250} height={250}></canvas>
           </div>
-          <div className="chart-button mt-1">
+          <div className="compare-container">
+            <div className="chart-button mt-1 sort-buttons">
+              <button
+                onClick={handleSortClick}
+                className="btn btn-outline-secondary btn-sm mx-1"
+                id="current_price"
+              >
+                Current price
+              </button>
+              <button
+                onClick={handleSortClick}
+                className="btn btn-outline-secondary btn-sm mx-1"
+                id="market_cap"
+              >
+                Market capitalization
+              </button>
+              <button
+                onClick={handleSortClick}
+                className="btn btn-outline-secondary btn-sm mx-1"
+                id="total_volume"
+              >
+                24H Volume
+              </button>
+              <button
+                onClick={handleSortClick}
+                className="btn btn-outline-secondary btn-sm mx-1"
+                id="high_24h"
+              >
+                24H High
+              </button>
+            </div>
+            <div className="chart-button mt-1">
             <button
-              onClick={handleClick}
-              className="btn btn-outline-secondary btn-sm"
-              id="current_price"
-            >
-              Current price
-            </button>
-            <button
-              onClick={handleClick}
-              className="btn btn-outline-secondary btn-sm"
-              id="market_cap"
-            >
-              Market capitalization
-            </button>
-            <button
-              onClick={handleClick}
-              className="btn btn-outline-secondary btn-sm mx-1"
-              id="total_volume"
-            >
-              24H Volume
-            </button>
-            <button
-              onClick={handleClick}
-              className="btn btn-outline-secondary btn-sm mx-1"
-              id="high_24h"
-            >
-              24H High
-            </button>
-            <button
-              onClick={handleSizeClick}
-              className="btn btn-outline-secondary btn-sm mx-1"
-              id="5"
-            >
-              Top 5
-            </button>
-            <button
-              onClick={handleSizeClick}
-              className="btn btn-outline-secondary btn-sm mx-1"
-              id="10"
-            >
-              Top 10
-            </button>
-            <Link to="/" className="btn btn-outline-secondary btn-sm" style={{float: 'right'}}>
-            ← Back
-          </Link>
+                onClick={handleSizeClick}
+                className="btn btn-outline-secondary btn-sm mx-1"
+                id="5"
+              >
+                Top 5
+              </button>
+              <button
+                onClick={handleSizeClick}
+                className="btn btn-outline-secondary btn-sm mx-1"
+                id="10"
+              >
+                Top 10
+              </button>
+            </div>
+            <div className="chart-button mt-1">
+              <Link to="/" className="btn btn-outline-secondary btn-sm">
+                ← Back
+              </Link>
+            </div>
           </div>
         </div>
       );
