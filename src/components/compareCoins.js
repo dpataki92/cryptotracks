@@ -136,7 +136,7 @@ const CompareCoins = () => {
             </div>
 
             <div className="chart-button mt-1">
-              <Link to="/" className="btn btn-outline-secondary btn-sm">
+              <Link to="/cryptotracks" className="btn btn-outline-secondary btn-sm">
                 ← Back
               </Link>
             </div>

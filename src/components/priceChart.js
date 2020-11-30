@@ -63,7 +63,7 @@ const PriceChart = ({data}) => {
             </div>
             <div className="chart-button mt-1">
           <Link
-            to="/"
+            to="/cryptotracks"
             className="btn btn-outline-secondary btn-sm"
           >
             ← Back

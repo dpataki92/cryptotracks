@@ -14,7 +14,7 @@ const App = () => {
             <CoinStorageContextProvider>
                 <Router>
                     <Header />
-                    <Route exact path="/" component={CoinSummary}/>
+                    <Route exact path="/cryptotracks" component={CoinSummary}/>
                     <Route exact path="/coins/:id" component={CoinDetails}/>
                     <Route exact path="/coins/compare" component={CompareCoins}/>
                 </Router>
