@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chartjs from 'chart.js';
-import { chartOptions } from '../configs/chartConfig';
+import { compareChartOptions } from '../configs/chartConfig';
 import coinGecko from '../apis/coinGecko.js';
+import {mergeSortPrices} from '../helpers/sorting.js';
 
 const CompareCoins = () => {
     const chartRef = useRef();
@@ -22,34 +23,32 @@ const CompareCoins = () => {
         }
 
         if (!coinsToCompare) {
-            fetchData();
+          fetchData();
         }
         
         if (coinsToCompare) {
-            console.log(coinsToCompare.slice(0,5))
-            
+            const sortedByPrice = mergeSortPrices(coinsToCompare.slice(0,5)).map(obj => obj.current_price)
+            console.log(sortedByPrice)
             const chart = new Chartjs(chartRef.current, {
-                type: 'line',
+                type: 'bar',
                 data: {
+                  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
                     datasets: [{
                         label: `Current price`,
-                        data: coinsToCompare.slice(0,5),
+                        data: sortedByPrice, 
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
                             'rgba(255, 206, 86, 0.2)',
                             'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        pointRadius: 0,
-                        borderWidth: 1
+                            'rgba(153, 102, 255, 0.2)'
+                        ]
                     }],
                 },
                 options: {
-                  ...chartOptions
+                  ...compareChartOptions
                 }
-            })
+            })  
         }
             
 

@@ -19,3 +19,17 @@ export const chartOptions = {
       ],
     },
   };
+
+  export const compareChartOptions = {
+    lineHeightAnnotation: {
+      always: true,
+      hover: false,
+      lineWeight: 1.5,
+    },
+  
+    animation: {
+      duration: 2000,
+    },
+    maintainAspectRatio: false,
+    responsive: true
+  };
