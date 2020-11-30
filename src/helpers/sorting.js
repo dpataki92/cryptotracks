@@ -52,3 +52,20 @@ function maxAndRemove(arr) {
     return max;
   }
 
+// Sorts based on 24H high using bubble sort
+export const bubbleSort24HourHigh = (arr) => {
+    for (let i = arr.length; i > 0; i--) {
+        for (let x = 0; x < i-1; x++) {
+            if(arr[x]["high_24h"] > arr[x+1]["high_24h"]) {
+                swap(arr, x, x+1);
+            }
+        }
+    }
+    return arr;
+}
+
+function swap(arr, i1, i2) {
+    let temp = arr[i1];
+    arr[i1] = arr[i2];
+    arr[i2] = temp;
+}

@@ -26,7 +26,6 @@ export const chartOptions = {
       hover: false,
       lineWeight: 1.5,
     },
-  
     animation: {
       duration: 2000,
     },

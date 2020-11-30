@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Chartjs from 'chart.js';
-import { compareChartOptions } from '../configs/chartConfig';
 import coinGecko from '../apis/coinGecko.js';
 import {decideSort} from '../helpers/updateCompareCanvas.js';
 import { Link } from 'react-router-dom';
+import { compareChartOptions } from '../configs/chartConfig';
+
 
 const CompareCoins = () => {
     const chartRef = useRef();
@@ -53,7 +54,6 @@ const CompareCoins = () => {
                   ...compareChartOptions
                 }
             })
-            console.log(chart.data.datasets[0].data)
             setCurrentChart(chart);  
         }
             
@@ -70,9 +70,7 @@ const CompareCoins = () => {
 
       return (
         <div className="bg-white border rounded p-3 chartDiv">
-          <Link to="/" className="btn btn-outline-secondary btn-sm" style={{float: 'right'}}>
-            ← Back
-          </Link>
+
           <div id="canvas-div">
             <canvas ref={chartRef} id="myChart" width={250} height={250}></canvas>
           </div>
@@ -86,6 +84,13 @@ const CompareCoins = () => {
             </button>
             <button
               onClick={handleClick}
+              className="btn btn-outline-secondary btn-sm"
+              id="market_cap"
+            >
+              Market capitalization
+            </button>
+            <button
+              onClick={handleClick}
               className="btn btn-outline-secondary btn-sm mx-1"
               id="total_volume"
             >
@@ -93,11 +98,14 @@ const CompareCoins = () => {
             </button>
             <button
               onClick={handleClick}
-              className="btn btn-outline-secondary btn-sm"
-              id="market_cap"
+              className="btn btn-outline-secondary btn-sm mx-1"
+              id="high_24h"
             >
-              Market capitalization
+              24H High
             </button>
+            <Link to="/" className="btn btn-outline-secondary btn-sm" style={{float: 'right'}}>
+            ← Back
+          </Link>
           </div>
         </div>
       );
