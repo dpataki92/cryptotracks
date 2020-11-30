@@ -30,25 +30,25 @@ function mergeSort(arr) {
 
 // Sorts based on market capitalization using insertion sort
 export const insertionSortMarketCap = (arr) => {
-    let newMin;
+    let newMax;
     let sorted = [];
     while (arr.length !== 0) {
-      newMin = minAndRemove(arr);
-      sorted.push(newMin);
+      newMax = maxAndRemove(arr);
+      sorted.push(newMax);
     }
     return sorted;
 }
 
-function minAndRemove(arr) {
-    let min = arr[0];
-    let minIndex = 0;
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i]['market_cap'] < min['market_cap']) {
-        min = arr[i];
-        minIndex = i;
+function maxAndRemove(arr) {
+    let max = arr[0];
+    let maxIndex = 0;
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i]['market_cap'] > max['market_cap']) {
+        max = arr[i];
+        maxIndex = i;
       }
     }
-    arr.splice(minIndex, 1);
-    return min;
+    arr.splice(maxIndex, 1);
+    return max;
   }
 
