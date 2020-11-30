@@ -7,6 +7,7 @@ import { compareChartOptions } from '../configs/chartConfig';
 
 
 const CompareCoins = () => {
+  
     const chartRef = useRef();
     const [isLoading, setIsLoading] = useState(false);
     const [coinsToCompare, setCoinsToCompare] = useState(false);
@@ -16,6 +17,7 @@ const CompareCoins = () => {
     
 
     useEffect(() => {
+
         const fetchData = async () => {
             setIsLoading(true);
             const response = await coinGecko.get('/coins/markets', {
@@ -62,10 +64,6 @@ const CompareCoins = () => {
             })
             setCurrentChart(chart);  
         }
-            
-
-        
-
       }, [coinsToCompare]);
 
       const handleSortClick = (e) => {
@@ -86,7 +84,9 @@ const CompareCoins = () => {
           <div id="canvas-div">
             <canvas ref={chartRef} id="myChart" width={250} height={250}></canvas>
           </div>
+
           <div className="compare-container">
+
             <div className="chart-button mt-1 sort-buttons">
               <button
                 onClick={handleSortClick}
@@ -117,8 +117,9 @@ const CompareCoins = () => {
                 24H High
               </button>
             </div>
+
             <div className="chart-button mt-1">
-            <button
+              <button
                 onClick={handleSizeClick}
                 className="btn btn-outline-secondary btn-sm mx-1"
                 id="5"
@@ -133,6 +134,7 @@ const CompareCoins = () => {
                 Top 10
               </button>
             </div>
+
             <div className="chart-button mt-1">
               <Link to="/" className="btn btn-outline-secondary btn-sm">
                 ← Back
