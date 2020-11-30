@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import Chartjs from 'chart.js';
 import { compareChartOptions } from '../configs/chartConfig';
 import coinGecko from '../apis/coinGecko.js';
-import {mergeSortPrices} from '../helpers/sorting.js';
+import {updateCompareCanvas} from '../helpers/updateCompareCanvas.js';
+import {decideSort} from '../helpers/updateCompareCanvas.js';
 
 const CompareCoins = () => {
     const chartRef = useRef();
@@ -27,15 +28,14 @@ const CompareCoins = () => {
         }
         
         if (coinsToCompare) {
-            const sortedByPrice = mergeSortPrices(coinsToCompare.slice(0,5)).map(obj => obj.current_price)
-            console.log(sortedByPrice)
+          let sorted = decideSort(coinsToCompare, "current_price").slice(0,5);
             const chart = new Chartjs(chartRef.current, {
                 type: 'bar',
                 data: {
-                  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
+                  labels: sorted.map(c => c.name),
                     datasets: [{
                         label: `Current price`,
-                        data: sortedByPrice, 
+                        data: sorted.map(c => c.current_price), 
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -58,7 +58,7 @@ const CompareCoins = () => {
 
       return (
         <div className="bg-white border rounded p-3 chartDiv">
-          <div>
+          <div id="canvas-div">
             <canvas ref={chartRef} id="myChart" width={250} height={250}></canvas>
           </div>
           <div className="chart-button mt-1">

@@ -1,4 +1,4 @@
-// Sorts 24h prices using mergesort
+// Sorts based on 24h prices using mergesort
 export const mergeSortPrices = (arr) => {
     console.log(mergeSort(arr))
     return mergeSort(arr);
@@ -28,8 +28,27 @@ function mergeSort(arr) {
 }
 
 
-
-export const insertionSortPriceChanges = (day) => {
-    
+// Sorts based on market capitalization using insertion sort
+export const insertionSortMarketCap = (arr) => {
+    let newMin;
+    let sorted = [];
+    while (arr.length !== 0) {
+      newMin = minAndRemove(arr);
+      sorted.push(newMin);
+    }
+    return sorted;
 }
+
+function minAndRemove(arr) {
+    let min = arr[0];
+    let minIndex = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i]['market_cap'] < min['market_cap']) {
+        min = arr[i];
+        minIndex = i;
+      }
+    }
+    arr.splice(minIndex, 1);
+    return min;
+  }
 
