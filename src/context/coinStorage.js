@@ -3,7 +3,7 @@ import React, { createContext, useEffect, useState } from "react";
 export const CoinStorageContext = createContext();
 
 export const CoinStorageContextProvider = props => {
-    const [coinStorage, setCoinStorage] = useState(localStorage.getItem("coinStorage").split(",")  || ['bitcoin', 'ethereum', 'ripple', 'litecoin']);
+    const [coinStorage, setCoinStorage] = useState(localStorage.getItem("coinStorage") ? localStorage.getItem("coinStorage").split(",")  : ['bitcoin', 'ethereum', 'ripple', 'litecoin']);
 
     useEffect(() => {
         localStorage.setItem("coinStorage", coinStorage);
