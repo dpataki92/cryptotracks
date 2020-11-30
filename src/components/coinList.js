@@ -3,7 +3,7 @@ import coinGecko from '../apis/coinGecko.js';
 import { CoinStorageContext } from '../context/coinStorage.js';
 import Coin from './coin.js';
 
-const CoinList = (props) => {
+const CoinList = () => {
 
     const [coins, setCoins] = useState([]);
     const { coinStorage, deleteCoin } = useContext(CoinStorageContext);
@@ -18,7 +18,6 @@ const CoinList = (props) => {
                     ids: coinStorage.join(",")
                 }
             });
-            console.log(response.data)
             setCoins(response.data);
             setIsLoading(false);
 
@@ -34,9 +33,9 @@ const CoinList = (props) => {
 
     const renderCoins = () => {
         if(isLoading) {
-            return <div><i className="fas fa-coins"></i> Your coins are loading...</div>
+            return <div><i className="fas fa-coins"></i> Your coins are loading...</div>;
         } else if (coins.length === 0) {
-            return <div><i className="fas fa-coins"></i> Add a coin to the list...</div>
+            return <div><i className="fas fa-coins"></i> Add a coin to the list...</div>;
         }
 
         return (
