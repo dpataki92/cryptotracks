@@ -11,6 +11,7 @@ const CompareCoins = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [coinsToCompare, setCoinsToCompare] = useState(false);
     const [sortCondition, setSortCondition] = useState("current_price");
+    const [sortSize, setSortSize] = useState(5);
     const [currentChart, setCurrentChart] = useState("current_price");
     
 
@@ -32,8 +33,8 @@ const CompareCoins = () => {
         }
         
         if (coinsToCompare) {
-          let sorted = decideSort(coinsToCompare, sortCondition).slice(0,5);
-          console.log(sorted)
+          let sorted = decideSort(coinsToCompare, sortCondition, sortSize);
+          
             const chart = new Chartjs(chartRef.current, {
                 type: 'bar',
                 data: {
@@ -42,6 +43,11 @@ const CompareCoins = () => {
                         label: sortCondition[0].toUpperCase() + sortCondition.replace(/_/g, " ").slice(1),
                         data: sorted.map(c => c[sortCondition]), 
                         backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)',
+                            'rgba(54, 162, 235, 0.5)',
+                            'rgba(255, 206, 86, 0.5)',
+                            'rgba(75, 192, 192, 0.5)',
+                            'rgba(153, 102, 255, 0.5)',
                             'rgba(255, 99, 132, 0.5)',
                             'rgba(54, 162, 235, 0.5)',
                             'rgba(255, 206, 86, 0.5)',
@@ -66,6 +72,12 @@ const CompareCoins = () => {
         currentChart.destroy();
         setCoinsToCompare(false);
         setSortCondition(e.target.id);
+      }
+
+      const handleSizeClick = (e) => {
+        currentChart.destroy();
+        setCoinsToCompare(false);
+        setSortSize(parseInt(e.target.id));
       }
 
       return (
@@ -102,6 +114,20 @@ const CompareCoins = () => {
               id="high_24h"
             >
               24H High
+            </button>
+            <button
+              onClick={handleSizeClick}
+              className="btn btn-outline-secondary btn-sm mx-1"
+              id="5"
+            >
+              Top 5
+            </button>
+            <button
+              onClick={handleSizeClick}
+              className="btn btn-outline-secondary btn-sm mx-1"
+              id="10"
+            >
+              Top 10
             </button>
             <Link to="/" className="btn btn-outline-secondary btn-sm" style={{float: 'right'}}>
             ← Back
