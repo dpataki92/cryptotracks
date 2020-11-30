@@ -20,11 +20,11 @@ The application leverages the CoinGecko API and Chart.js to create dynamic chart
 
 - Cd into cryptotracks folder
 
-- Run 'npm start'
+- Run 'npm start'  
 
-        OR  
+OR
 
-- Go to https://dpataki92.github.io/cryptotracks/
+- Go to https://cryptotracks.herokuapp.com/
 
 # Contributing
 
