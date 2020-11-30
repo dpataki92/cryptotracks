@@ -52,7 +52,7 @@ function maxAndRemove(arr) {
     return max;
   }
 
-// Sorts based on 24H high using bubble sort
+// Sorts based on 24H price high using bubble sort
 export const bubbleSort24HourHigh = (arr) => {
     for (let i = arr.length; i > 0; i--) {
         for (let x = 0; x < i-1; x++) {
@@ -68,4 +68,22 @@ function swap(arr, i1, i2) {
     let temp = arr[i1];
     arr[i1] = arr[i2];
     arr[i2] = temp;
+}
+
+//Sorts based on 24H volume using selection sort
+export const selectionSort24HourVolume = (arr) => {
+    for (let i = 0; i < arr.length; i++) {
+        let lowest = i;
+        for (let x = i+1; x < arr.length; x++) {
+            if(arr[lowest]["total_volume"] > arr[x]["total_volume"]) {
+                lowest = x;   
+            }
+        }
+        if (i !== lowest) {
+            let temp = arr[i];
+            arr[i] = arr[lowest];
+            arr[lowest] = temp;
+        }
+    }
+    return arr;
 }
